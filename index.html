@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player 1 | Portfolio Quest</title>
+    <title>Player 1 | Econometric Quest</title>
     
     <!-- Retro Pixel Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +20,10 @@
             --text-dark: #2c2c35;
             --text-muted: #62627a;
             
-            /* Fruit & Item Colors */
-            --pixel-apple: #ff3b3b;
-            --pixel-grape: #9b5de5;
-            --pixel-orange: #f15bb5;
+            /* Accent Colors */
+            --pixel-red: #ff5964;
+            --pixel-blue: #0984e3;
             --pixel-gold: #fee440;
-            --pixel-leaf: #00f5d4;
         }
 
         body {
@@ -46,7 +44,7 @@
             position: relative;
         }
 
-        /* Pure CSS Pixel Clouds in the background background */
+        /* Pure CSS Pixel Clouds in the background */
         body::before {
             content: "";
             position: absolute;
@@ -83,11 +81,12 @@
         }
 
         .game-header h1 {
-            font-size: 22px;
+            font-size: 20px;
             margin: 0 0 12px 0;
-            color: #ff5964;
+            color: var(--pixel-red);
             text-shadow: 2px 2px 0px var(--pixel-gold);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .status-hud {
@@ -108,7 +107,7 @@
 
         /* Sidebar Buttons */
         .tabs-sidebar {
-            width: 32%;
+            width: 35%;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -120,7 +119,7 @@
             border: 4px solid var(--border-dark);
             padding: 14px 10px;
             font-family: 'Press Start 2P', monospace;
-            font-size: 9px;
+            font-size: 8.5px;
             text-align: left;
             cursor: pointer;
             box-shadow: 4px 4px 0px var(--border-dark);
@@ -143,11 +142,11 @@
 
         /* Monitor Display Box */
         .display-panel {
-            width: 68%;
+            width: 65%;
             background-color: #ffffff;
             border: 4px solid var(--border-dark);
             padding: 25px;
-            min-height: 400px;
+            min-height: 420px;
             box-sizing: border-box;
             box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05);
         }
@@ -161,8 +160,8 @@
         }
 
         h2 {
-            font-size: 13px;
-            color: #0984e3;
+            font-size: 12px;
+            color: var(--pixel-blue);
             margin-top: 0;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -172,11 +171,11 @@
 
         p {
             color: var(--text-muted);
-            font-size: 11px;
+            font-size: 10.5px;
             line-height: 2;
         }
 
-        /* Pixel Fruit Bullet Points Rules */
+        /* Customized Icon Bullet Points */
         ul {
             list-style: none;
             padding: 0;
@@ -184,27 +183,29 @@
         }
 
         li {
-            font-size: 11px;
+            font-size: 10.5px;
             margin-bottom: 18px;
             position: relative;
             padding-left: 28px;
             color: var(--text-muted);
         }
 
-        /* Custom Pixel Icons built directly into list bullets */
         li::before {
-            content: "🍒"; /* Default fallback item */
             position: absolute;
             left: 0;
             top: -2px;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        /* Individual customization variables for your sections */
-        .apple-list li::before { content: "🍎"; }
-        .grape-list li::before { content: "🍇"; }
-        .coin-list li::before { content: "🪙"; }
+        /* Map custom icons to classes */
+        .scale-list li::before { content: "⚖️"; }
+        .chart-list li::before { content: "📊"; }
+        .handshake-list li::before { content: "🤝"; }
+        .search-list li::before { content: "🔍"; }
+        .trend-list li::before { content: "📈"; }
         .star-list li::before { content: "⭐"; }
+        .yarn-list li::before { content: "🧶"; }
+        .coin-list li::before { content: "🪙"; }
 
         .highlight {
             color: var(--text-dark);
@@ -214,7 +215,7 @@
         /* Grid box inside skills */
         .perks-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 15px;
             margin-top: 15px;
         }
@@ -222,7 +223,7 @@
         .perk-box {
             background: #f9f9ff;
             border: 3px solid var(--border-dark);
-            padding: 10px;
+            padding: 12px;
         }
 
         @media (max-width: 768px) {
@@ -236,96 +237,101 @@
     <div class="game-container">
         <!-- Dashboard Header -->
         <div class="game-header">
-            <h1>Levina Mary Darbin's Portfolio</h1>
+            <h1>Levina Mary Darbin's Econometric Quest</h1>
             <div class="status-hud">
-                🎒 INVENTORY: Full | 🛠️ MODE: Build | ☀️ WEATHER: Sunny
+                📊 MODEL: Specified | 📈 R-SQUARED: 0.99 | 🛡️ SIGNIFICANCE: p < 0.01
             </div>
         </div>
 
         <div class="menu-layout">
-            <!-- Left Side Interactive Item Row -->
+            <!-- Left Side Interactive Item Row: Rethemed for Economics -->
             <nav class="tabs-sidebar">
-                <button class="tab-btn active" onclick="openTab(event, 'about')">🍊 ABOUT ME</button>
-                <button class="tab-btn" onclick="openTab(event, 'projects')">🍎 PROJECTS</button>
-                <button class="tab-btn" onclick="openTab(event, 'volunteering')">🍇 VOLUNTEERING</button>
-                <button class="tab-btn" onclick="openTab(event, 'internships')">🍌 INTERNSHIPS</button>
-                <button class="tab-btn" onclick="openTab(event, 'experiences')">🍒 EXPERIENCES</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills')">⭐ SKILLS & CERT.</button>
-                <button class="tab-btn" onclick="openTab(event, 'hobbies')">🧶 HOBBIES</button>
-                <button class="tab-btn" onclick="openTab(event, 'extra')">🪙 LITTLE EXTRA</button>
+                <button class="tab-btn active" onclick="openTab(event, 'about')">⚖️ CORE ASSUMPTIONS</button>
+                <button class="tab-btn" onclick="openTab(event, 'projects')">📊 EMPIRICAL PROJECTS</button>
+                <button class="tab-btn" onclick="openTab(event, 'volunteering')">🤝 EXTERNALITIES</button>
+                <button class="tab-btn" onclick="openTab(event, 'internships')">🔍 MARKET DEMAND</button>
+                <button class="tab-btn" onclick="openTab(event, 'experiences')">📈 TIME SERIES EXP</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills')">⭐ SKILL COEFFICIENTS</button>
+                <button class="tab-btn" onclick="openTab(event, 'hobbies')">🧶 UTILITY MAXIMIZATION</button>
+                <button class="tab-btn" onclick="openTab(event, 'extra')">🪙 ENDOWMENT BONUS</button>
             </nav>
 
             <!-- Right Side Dashboard Display Screen -->
             <main class="display-panel">
                 
-                <!-- ABOUT ME -->
+                <!-- ABOUT ME (CORE ASSUMPTIONS) -->
                 <div id="about" class="tab-content active">
-                    <h2>🍊 Character Bio</h2>
-                    <p>Welcome to my main island directory! I am an economics master's student trained in quantitative data strategy, analytical mapping, and econometric theories.</p>
-                    <p>I enjoy collecting structured data frameworks, turning confusing information panels into actionable steps, and configuring analytical models.</p>
+                    <h2>⚖️ Identification Strategy</h2>
+                    <p>Welcome to my primary research terminal. I am an economics master's student utilizing quantitative analysis, data modeling, and econometric theory to isolate causal relationships and crack raw data patterns.</p>
+                    <p>Equipped with solid statistical foundations and analytical focus, aiming to optimize parameters and deliver insights within high-impact data pipelines.</p>
                 </div>
 
-                <!-- PROJECTS -->
+                <!-- PROJECTS (EMPIRICAL PROJECTS) -->
                 <div id="projects" class="tab-content">
-                    <h2>🍎 Quest Log: Projects</h2>
-                    <ul class="apple-list">
-                        <li><span class="highlight">[Project Module 1]</span> - Compiled data regressions to identify variance markers across market models.</li>
-                        <li><span class="highlight">[Project Module 2]</span> - Engineered custom script metrics using data management loops to evaluate field datasets.</li>
+                    <h2>📊 Selected Estimations</h2>
+                    <ul class="chart-list">
+                        <li><span class="highlight">[Research Paper Title 1]</span> - Constructed an identification framework utilizing advanced regression strategies to evaluate policy metrics.</li>
+                        <li><span class="highlight">[Data Analysis Project 2]</span> - Programmed scripts to clean, structure, and balance complex panel datasets across multiple time variables.</li>
                     </ul>
                 </div>
 
-                <!-- VOLUNTEERING -->
+                <!-- VOLUNTEERING (EXTERNALITIES) -->
                 <div id="volunteering" class="tab-content">
-                    <h2>🍇 Community Side Quests</h2>
-                    <ul class="grape-list">
-                        <li><span class="highlight">[Organization Group]</span> - Streamlined local resource distribution networks and asset management.</li>
-                        <li><span class="highlight">[Event Leadership]</span> - Organized logistics flows and data coordination channels for regional campaigns.</li>
+                    <h2>🤝 Positive Externalities</h2>
+                    <ul class="handshake-list">
+                        <li><span class="highlight">[Organization/Society Name]</span> - Coordinated operational logistics and balanced resource allocation frameworks for community initiatives.</li>
+                        <li><span class="highlight">[Volunteer Project]</span> - Managed data tracking channels and asset communication loops to optimize project outreach.</li>
                     </ul>
                 </div>
 
-                <!-- INTERNSHIPS -->
+                <!-- INTERNSHIPS (MARKET DEMAND) -->
                 <div id="internships" class="tab-content">
-                    <h2>🍌 Internships Slot</h2>
-                    <p>🛠️ Current Objective: Secure an active enterprise pipeline internship slot.</p>
-                    <p>Ready to deploy into Data Analyst, Research Assistant, or Business Intelligence roles instantly.</p>
+                    <h2>🔍 Equilibrium Target: Internships</h2>
+                    <p>🔍 Current Objective: Secure an active corporate or research internship pipeline.</p>
+                    <p>Fully equipped to handle quantitative datasets, compile literature reviews, or run regression scripts immediately upon deployment.</p>
                 </div>
 
-                <!-- EXPERIENCES -->
+                <!-- EXPERIENCES (TIME SERIES EXP) -->
                 <div id="experiences" class="tab-content">
-                    <h2>🍒 Campaign Milestones</h2>
-                    <ul class="apple-list">
-                        <li><span class="highlight">Academic Research & Coding Engine</span> - Successfully completed complex structural data coursework, utilizing clean data patterns to write summaries and forecast trends.</li>
+                    <h2>📈 Historical Data Summary</h2>
+                    <ul class="trend-list">
+                        <li><span class="highlight">Academic Research & Modeling Engine</span> - Successfully executed data management pipelines throughout intensive university modules, interpreting statistical significance and summarizing trends for academic evaluations.</li>
                     </ul>
                 </div>
 
-                <!-- SKILLS & CERTIFICATES -->
+                <!-- SKILLS & CERTIFICATES (SKILL COEFFICIENTS) -->
                 <div id="skills" class="tab-content">
-                    <h2>⭐ Technical Skill Tree</h2>
+                    <h2>⭐ Parameter Matrix</h2>
                     <div class="perks-grid">
                         <div class="perk-box">
-                            <div class="highlight">📊 Core Systems:</div>
-                            Econometrics, Causal Inference, Structural Modeling
+                            <div class="highlight">📊 Quantitative Methods:</div>
+                            Econometric Modeling, Causal Inference, Regression Analysis, Panel Data Management
                         </div>
                         <div class="perk-box">
-                            <div class="highlight">💻 Code Base:</div>
-                            R, Stata, Python, Git/GitHub
+                            <div class="highlight">💻 Technical Toolkit:</div>
+                            R, Stata, Python, Git / GitHub, Microsoft Excel
+                        </div>
+                        <div class="perk-box">
+                            <div class="highlight">📜 Credentials:</div>
+                            [Placeholder for certifications, core modules, or relevant training milestones]
                         </div>
                     </div>
                 </div>
 
-                <!-- HOBBIES -->
+                <!-- HOBBIES (UTILITY MAXIMIZATION) -->
                 <div id="hobbies" class="tab-content">
-                    <h2>🧶 Crafting Level: Expert</h2>
-                    <p>When my analytical compiler rests, I invest my energy into creative spatial planning and visual design, including painting canvases and complex garment architecture (crocheting clothing lines).</p>
+                    <h2>🧶 Balanced Preferences</h2>
+                    <p>When my analytical compiler rests, I maximize my personal utility function through structural and creative architecture. This includes mapping geometric spaces on canvas through painting and configuring physical design lines via garment design (crocheting clothing lines).</p>
                 </div>
 
-                <!-- LITTLE EXTRA -->
+                <!-- LITTLE EXTRA (ENDOWMENT BONUS) -->
                 <div id="extra" class="tab-content">
-                    <h2>🪙 Bonus Inventory</h2>
+                    <h2>🪙 Exogenous Shocks & Perks</h2>
                     <ul class="coin-list">
-                        <li>Focus Buff: +20% during complex calculations</li>
-                        <li>Typing Speed: 70 Words Per Minute</li>
-                        <li>Language Node: Basic German (A1 Unlocked!)</li>
+                        <li><span class="highlight">Opportunity Cost:</span> Highly optimized; focused on building efficient workflows.</li>
+                        <li><span class="highlight">Diminishing Marginal Utility:</span> Activates only after the 4th consecutive espresso.</li>
+                        <li><span class="highlight">Language Node:</span> Basic German Unlocked (A1 proficiency level achieved!).</li>
+                        <li><span class="highlight">Typing Speed:</span> 64 Words Per Minute.</li>
                     </ul>
                 </div>
 
