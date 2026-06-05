@@ -3,151 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Selection | Portfolio</title>
+    <title>Player 1 | Portfolio Quest</title>
     
-    <!-- Importing a pixel-style font from Google Fonts -->
+    <!-- Retro Pixel Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
-        /* Retro Game Styling Variables */
+        /* Bright Sunny RPG Palette */
         :root {
-            --bg-color: #121216;
-            --window-bg: #1c1c24;
-            --border-primary: #ffffff;
-            --text-main: #ffffff;
-            --text-muted: #a0a0ba;
-            --accent-green: #38fe71;
-            --accent-blue: #00ccff;
-            --accent-yellow: #fcd116;
+            --sky-blue: #5cceff;
+            --grass-green: #5cd670;
+            --window-bg: #fffbf0; /* Warm cream page */
+            --border-dark: #2c2c35;
+            --text-dark: #2c2c35;
+            --text-muted: #62627a;
+            
+            /* Fruit & Item Colors */
+            --pixel-apple: #ff3b3b;
+            --pixel-grape: #9b5de5;
+            --pixel-orange: #f15bb5;
+            --pixel-gold: #fee440;
+            --pixel-leaf: #00f5d4;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--sky-blue);
+            /* Pixel Art Grass Horizon at the bottom */
+            background-image: linear-gradient(to top, var(--grass-green) 40px, transparent 40px);
+            color: var(--text-dark);
             font-family: 'Press Start 2P', monospace;
-            font-size: 12px;
+            font-size: 11px;
             line-height: 1.8;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+            position: relative;
         }
 
-        /* The Main CRT/NES Style Menu Container */
-        .game-menu {
+        /* Pure CSS Pixel Clouds in the background background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 120px;
+            height: 30px;
+            background: white;
+            box-shadow: 30px 10px 0 0 white, -20px 10px 0 0 white, 10px -10px 0 0 white;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        /* Main Cozy Game Menu UI Window */
+        .game-container {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             background-color: var(--window-bg);
-            border: 6px solid var(--border-primary);
-            /* Creating a blocky, pixelated shadow box */
-            box-shadow: 10px 10px 0px #000000;
-            padding: 20px;
-            image-rendering: pixelated;
+            border: 6px solid var(--border-dark);
+            box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            z-index: 10;
+            position: relative;
+            border-radius: 4px;
         }
 
-        /* Header / Title Bar */
+        /* Top Banner Header */
         .game-header {
             text-align: center;
-            border-bottom: 4px dashed var(--border-primary);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+            border-bottom: 6px double var(--border-dark);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
         }
 
         .game-header h1 {
-            font-size: 20px;
-            margin: 0 0 10px 0;
-            color: var(--accent-blue);
+            font-size: 22px;
+            margin: 0 0 12px 0;
+            color: #ff5964;
+            text-shadow: 2px 2px 0px var(--pixel-gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .status-bar {
-            font-size: 10px;
-            color: var(--accent-green);
+        .status-hud {
+            font-size: 9px;
+            background: #eef7fc;
+            display: inline-block;
+            padding: 8px 16px;
+            border: 3px solid var(--border-dark);
+            color: var(--text-dark);
         }
 
-        /* Layout Split: Left Side Tabs, Right Side Display */
+        /* Main Interactive Layout Grid */
         .menu-layout {
             display: flex;
             flex-direction: row;
-            gap: 20px;
+            gap: 25px;
         }
 
-        /* Sidebar Navigation Menu */
-        .tabs-menu {
-            width: 30%;
+        /* Sidebar Buttons */
+        .tabs-sidebar {
+            width: 32%;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        /* Retro Button Tabs */
         .tab-btn {
-            background-color: #2a2a3a;
-            color: var(--text-main);
-            border: 4px solid var(--border-primary);
-            padding: 12px 8px;
+            background-color: #ffeaa7;
+            color: var(--text-dark);
+            border: 4px solid var(--border-dark);
+            padding: 14px 10px;
             font-family: 'Press Start 2P', monospace;
             font-size: 9px;
             text-align: left;
             cursor: pointer;
+            box-shadow: 4px 4px 0px var(--border-dark);
             transition: all 0.1s ease;
         }
 
         .tab-btn:hover {
-            background-color: #3e3e56;
-            color: var(--accent-yellow);
-            transform: translateX(4px);
+            background-color: #ffffcc;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-dark);
         }
 
-        /* Active Tab Status */
+        /* Active Tab Accent (Selected Level) */
         .tab-btn.active {
-            background-color: var(--accent-blue);
-            color: #000;
-            border-color: #fff;
+            background-color: #ff7675;
+            color: white;
+            box-shadow: none;
+            transform: translate(4px, 4px);
         }
 
-        /* Screen Display Box */
-        .display-screen {
-            width: 70%;
-            background-color: #0b0b0f;
-            border: 4px solid var(--border-primary);
-            padding: 20px;
-            min-height: 350px;
+        /* Monitor Display Box */
+        .display-panel {
+            width: 68%;
+            background-color: #ffffff;
+            border: 4px solid var(--border-dark);
+            padding: 25px;
+            min-height: 400px;
             box-sizing: border-box;
+            box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05);
         }
 
-        /* Content Screen Config */
         .tab-content {
             display: none;
         }
 
         .tab-content.active {
             display: block;
-            animation: flicker 0.15s infinite alternate; /* Retro screen load vibe */
         }
 
         h2 {
-            font-size: 14px;
-            color: var(--accent-yellow);
+            font-size: 13px;
+            color: #0984e3;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            border-bottom: 2px solid #2a2a3a;
-            padding-bottom: 8px;
+            border-bottom: 4px dashed #dfe6e9;
+            padding-bottom: 10px;
         }
 
         p {
             color: var(--text-muted);
-            font-size: 10px;
+            font-size: 11px;
             line-height: 2;
         }
 
+        /* Pixel Fruit Bullet Points Rules */
         ul {
             list-style: none;
             padding: 0;
@@ -155,126 +184,148 @@
         }
 
         li {
-            font-size: 10px;
-            margin-bottom: 12px;
+            font-size: 11px;
+            margin-bottom: 18px;
             position: relative;
-            padding-left: 15px;
+            padding-left: 28px;
             color: var(--text-muted);
         }
 
+        /* Custom Pixel Icons built directly into list bullets */
         li::before {
-            content: ">";
+            content: "🍒"; /* Default fallback item */
             position: absolute;
             left: 0;
-            color: var(--accent-green);
+            top: -2px;
+            font-size: 14px;
         }
 
-        .highlight-text {
-            color: var(--text-main);
+        /* Individual customization variables for your sections */
+        .apple-list li::before { content: "🍎"; }
+        .grape-list li::before { content: "🍇"; }
+        .coin-list li::before { content: "🪙"; }
+        .star-list li::before { content: "⭐"; }
+
+        .highlight {
+            color: var(--text-dark);
+            font-weight: bold;
         }
 
-        /* Responsive tweak for smaller monitors */
+        /* Grid box inside skills */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .perk-box {
+            background: #f9f9ff;
+            border: 3px solid var(--border-dark);
+            padding: 10px;
+        }
+
         @media (max-width: 768px) {
-            .menu-layout {
-                flex-direction: column;
-            }
-            .tabs-menu {
-                width: 100%;
-            }
-            .display-screen {
-                width: 100%;
-            }
+            .menu-layout { flex-direction: column; }
+            .tabs-sidebar, .display-panel { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="game-menu">
+    <div class="game-container">
+        <!-- Dashboard Header -->
         <div class="game-header">
-            <h1>Player 1: Portfolio</h1>
-            <div class="status-bar">HP: 99/99 | LVL: Master's Student | EXP: Ready to Work</div>
+            <h1>LevinaMary's Island Portfolio</h1>
+            <div class="status-hud">
+                🎒 INVENTORY: Full | 🛠️ MODE: Build | ☀️ WEATHER: Sunny
+            </div>
         </div>
 
         <div class="menu-layout">
-            <!-- Left Side: Navigation Tabs -->
-            <nav class="tabs-menu">
-                <button class="tab-btn active" onclick="openTab(event, 'about')">ABOUT ME</button>
-                <button class="tab-btn" onclick="openTab(event, 'projects')">PROJECTS</button>
-                <button class="tab-btn" onclick="openTab(event, 'volunteering')">VOLUNTEERING</button>
-                <button class="tab-btn" onclick="openTab(event, 'internships')">INTERNSHIPS</button>
-                <button class="tab-btn" onclick="openTab(event, 'experiences')">EXPERIENCES</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills')">SKILLS & CERT.</button>
-                <button class="tab-btn" onclick="openTab(event, 'hobbies')">HOBBIES</button>
-                <button class="tab-btn" onclick="openTab(event, 'extra')">LITTLE EXTRA</button>
+            <!-- Left Side Interactive Item Row -->
+            <nav class="tabs-sidebar">
+                <button class="tab-btn active" onclick="openTab(event, 'about')">🍊 ABOUT ME</button>
+                <button class="tab-btn" onclick="openTab(event, 'projects')">🍎 PROJECTS</button>
+                <button class="tab-btn" onclick="openTab(event, 'volunteering')">🍇 VOLUNTEERING</button>
+                <button class="tab-btn" onclick="openTab(event, 'internships')">🍌 INTERNSHIPS</button>
+                <button class="tab-btn" onclick="openTab(event, 'experiences')">🍒 EXPERIENCES</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills')">⭐ SKILLS & CERT.</button>
+                <button class="tab-btn" onclick="openTab(event, 'hobbies')">🧶 HOBBIES</button>
+                <button class="tab-btn" onclick="openTab(event, 'extra')">🪙 LITTLE EXTRA</button>
             </nav>
 
-            <!-- Right Side: Content Screen Display -->
-            <main class="display-screen">
+            <!-- Right Side Dashboard Display Screen -->
+            <main class="display-panel">
                 
                 <!-- ABOUT ME -->
                 <div id="about" class="tab-content active">
-                    <h2>> System Summary</h2>
-                    <p>Welcome to my command center. I am an economics master's student utilizing quantitative analysis, data modeling, and econometric theory to crack real-world data patterns.</p>
-                    <p>Equipped with analytical focus and technical adaptability, looking to deploy skills into high-impact environments.</p>
+                    <h2>🍊 Character Bio</h2>
+                    <p>Welcome to my main island directory! I am an economics master's student trained in quantitative data strategy, analytical mapping, and econometric theories.</p>
+                    <p>I enjoy collecting structured data frameworks, turning confusing information panels into actionable steps, and configuring analytical models.</p>
                 </div>
 
                 <!-- PROJECTS -->
                 <div id="projects" class="tab-content">
-                    <h2>> Quest Log: Projects</h2>
-                    <ul>
-                        <li><span class="highlight-text">[Project Title 1]</span> - Executed a comparative data model on global market metrics using advanced statistical packages.</li>
-                        <li><span class="highlight-text">[Project Title 2]</span> - Analyzed panel datasets utilizing causal inference strategies to measure structural variables.</li>
+                    <h2>🍎 Quest Log: Projects</h2>
+                    <ul class="apple-list">
+                        <li><span class="highlight">[Project Module 1]</span> - Compiled data regressions to identify variance markers across market models.</li>
+                        <li><span class="highlight">[Project Module 2]</span> - Engineered custom script metrics using data management loops to evaluate field datasets.</li>
                     </ul>
                 </div>
 
                 <!-- VOLUNTEERING -->
                 <div id="volunteering" class="tab-content">
-                    <h2>> Side Quests: Volunteering</h2>
-                    <ul>
-                        <li><span class="highlight-text">[Organization Name]</span> - Coordinated logistics and asset allocation for local community events.</li>
-                        <li><span class="highlight-text">[Role / Initiative]</span> - Provided operational support to enhance group communications and layout objectives.</li>
+                    <h2>🍇 Community Side Quests</h2>
+                    <ul class="grape-list">
+                        <li><span class="highlight">[Organization Group]</span> - Streamlined local resource distribution networks and asset management.</li>
+                        <li><span class="highlight">[Event Leadership]</span> - Organized logistics flows and data coordination channels for regional campaigns.</li>
                     </ul>
                 </div>
 
                 <!-- INTERNSHIPS -->
                 <div id="internships" class="tab-content">
-                    <h2>> Unlocked Trophies: Internships</h2>
-                    <p>// Loading upcoming data matrix...</p>
-                    <p>Actively looking to secure my first corporate internship module. Available for research, data, and analytical entry pipelines.</p>
+                    <h2>🍌 Internships Slot</h2>
+                    <p>🛠️ Current Objective: Secure an active enterprise pipeline internship slot.</p>
+                    <p>Ready to deploy into Data Analyst, Research Assistant, or Business Intelligence roles instantly.</p>
                 </div>
 
                 <!-- EXPERIENCES -->
                 <div id="experiences" class="tab-content">
-                    <h2>> Campaign History</h2>
-                    <ul>
-                        <li><span class="highlight-text">Academic Research & Modeling</span> - Extensively built regression models, cleaned micro-level data, and structured economic theory presentations across university courses.</li>
+                    <h2>🍒 Campaign Milestones</h2>
+                    <ul class="apple-list">
+                        <li><span class="highlight">Academic Research & Coding Engine</span> - Successfully completed complex structural data coursework, utilizing clean data patterns to write summaries and forecast trends.</li>
                     </ul>
                 </div>
 
                 <!-- SKILLS & CERTIFICATES -->
                 <div id="skills" class="tab-content">
-                    <h2>> Skill Tree & Perks</h2>
-                    <ul>
-                        <li><span class="highlight-text">Data & Analytics:</span> Econometric Modeling, Causal Inference, Regression Designs.</li>
-                        <li><span class="highlight-text">Programming / Tools:</span> R, Stata, Python, MS Office Suite, Git/GitHub.</li>
-                        <li><span class="highlight-text">Certificates:</span> [Placeholder for certifications or completed modules].</li>
-                    </ul>
+                    <h2>⭐ Technical Skill Tree</h2>
+                    <div class="perks-grid">
+                        <div class="perk-box">
+                            <div class="highlight">📊 Core Systems:</div>
+                            Econometrics, Causal Inference, Structural Modeling
+                        </div>
+                        <div class="perk-box">
+                            <div class="highlight">💻 Code Base:</div>
+                            R, Stata, Python, Git/GitHub
+                        </div>
+                    </div>
                 </div>
 
                 <!-- HOBBIES -->
                 <div id="hobbies" class="tab-content">
-                    <h2>> Leisure Mode</h2>
-                    <p>When my analytical compiler rests, I enjoy structural hobbies that challenge focus and creative architecture, including visual design/painting and intricate garment crafting (crocheting).</p>
+                    <h2>🧶 Crafting Level: Expert</h2>
+                    <p>When my analytical compiler rests, I invest my energy into creative spatial planning and visual design, including painting canvases and complex garment architecture (crocheting clothing lines).</p>
                 </div>
 
                 <!-- LITTLE EXTRA -->
                 <div id="extra" class="tab-content">
-                    <h2>> Secret Level: Extra</h2>
-                    <p>Fun Stats:</p>
-                    <ul>
-                        <li>Coffee Consumption: +15 Accuracy</li>
-                        <li>Typing speed: 70 WPM</li>
-                        <li>Problem-solving: Adaptive Logic</li>
+                    <h2>🪙 Bonus Inventory</h2>
+                    <ul class="coin-list">
+                        <li>Focus Buff: +20% during complex calculations</li>
+                        <li>Typing Speed: 70 Words Per Minute</li>
+                        <li>Language Node: Basic German (A1 Unlocked!)</li>
                     </ul>
                 </div>
 
@@ -282,22 +333,19 @@
         </div>
     </div>
 
-    <!-- JavaScript to handle switching tabs seamlessly without changing pages -->
+    <!-- Interface Controller Script -->
     <script>
         function openTab(evt, tabId) {
-            // Hide all tab contents
             const contents = document.getElementsByClassName("tab-content");
             for (let i = 0; i < contents.length; i++) {
                 contents[i].classList.remove("active");
             }
 
-            // Remove active status from all buttons
             const buttons = document.getElementsByClassName("tab-btn");
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("active");
             }
 
-            // Show current tab, and mark button active
             document.getElementById(tabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
