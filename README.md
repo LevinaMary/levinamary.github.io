@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player 1 | Portfolio Quest</title>
+    <title>Levina Mary Darbin | Portfolio Quest</title>
     
     <!-- Retro Pixel Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
             position: relative;
         }
 
-        /* Pure CSS Pixel Clouds in the background background */
+        /* Pure CSS Pixel Clouds in the background */
         body::before {
             content: "";
             position: absolute;
@@ -83,7 +83,7 @@
         }
 
         .game-header h1 {
-            font-size: 22px;
+            font-size: 20px;
             margin: 0 0 12px 0;
             color: #ff5964;
             text-shadow: 2px 2px 0px var(--pixel-gold);
@@ -91,12 +91,13 @@
         }
 
         .status-hud {
-            font-size: 9px;
+            font-size: 8px;
             background: #eef7fc;
             display: inline-block;
             padding: 8px 16px;
             border: 3px solid var(--border-dark);
             color: var(--text-dark);
+            line-height: 1.6;
         }
 
         /* Main Interactive Layout Grid */
@@ -108,19 +109,19 @@
 
         /* Sidebar Buttons */
         .tabs-sidebar {
-            width: 32%;
+            width: 34%;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .tab-btn {
             background-color: #ffeaa7;
             color: var(--text-dark);
             border: 4px solid var(--border-dark);
-            padding: 14px 10px;
+            padding: 12px 10px;
             font-family: 'Press Start 2P', monospace;
-            font-size: 9px;
+            font-size: 8px;
             text-align: left;
             cursor: pointer;
             box-shadow: 4px 4px 0px var(--border-dark);
@@ -143,11 +144,11 @@
 
         /* Monitor Display Box */
         .display-panel {
-            width: 68%;
+            width: 66%;
             background-color: #ffffff;
             border: 4px solid var(--border-dark);
             padding: 25px;
-            min-height: 400px;
+            min-height: 440px;
             box-sizing: border-box;
             box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05);
         }
@@ -161,7 +162,7 @@
         }
 
         h2 {
-            font-size: 13px;
+            font-size: 11px;
             color: #0984e3;
             margin-top: 0;
             margin-bottom: 20px;
@@ -172,8 +173,8 @@
 
         p {
             color: var(--text-muted);
-            font-size: 11px;
-            line-height: 2;
+            font-size: 10px;
+            line-height: 1.8;
         }
 
         /* Pixel Fruit Bullet Points Rules */
@@ -184,27 +185,28 @@
         }
 
         li {
-            font-size: 11px;
-            margin-bottom: 18px;
+            font-size: 10px;
+            margin-bottom: 16px;
             position: relative;
-            padding-left: 28px;
+            padding-left: 24px;
             color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* Custom Pixel Icons built directly into list bullets */
         li::before {
-            content: "🍒"; /* Default fallback item */
+            content: "🍒";
             position: absolute;
             left: 0;
             top: -2px;
-            font-size: 14px;
+            font-size: 12px;
         }
 
-        /* Individual customization variables for your sections */
         .apple-list li::before { content: "🍎"; }
         .grape-list li::before { content: "🍇"; }
         .coin-list li::before { content: "🪙"; }
         .star-list li::before { content: "⭐"; }
+        .banana-list li::before { content: "🍌"; }
 
         .highlight {
             color: var(--text-dark);
@@ -214,15 +216,17 @@
         /* Grid box inside skills */
         .perks-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 10px;
         }
         
         .perk-box {
             background: #f9f9ff;
             border: 3px solid var(--border-dark);
             padding: 10px;
+            font-size: 9px;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
@@ -236,9 +240,10 @@
     <div class="game-container">
         <!-- Dashboard Header -->
         <div class="game-header">
-            <h1>LevinaMary's Island Portfolio</h1>
+            <h1>Levina Mary Darbin</h1>
             <div class="status-hud">
-                🎒 INVENTORY: Full | 🛠️ MODE: Build | ☀️ WEATHER: Sunny
+                📍 Passau, Bavaria | ✉️ darbin02@ads.uni-passau.de<br>
+                📞 +49 1525 5833704 | 🎓 M.Sc. Econ & Business Student
             </div>
         </div>
 
@@ -246,13 +251,12 @@
             <!-- Left Side Interactive Item Row -->
             <nav class="tabs-sidebar">
                 <button class="tab-btn active" onclick="openTab(event, 'about')">🍊 ABOUT ME</button>
-                <button class="tab-btn" onclick="openTab(event, 'projects')">🍎 PROJECTS</button>
+                <button class="tab-btn" onclick="openTab(event, 'education')">🍎 EDUCATION</button>
+                <button class="tab-btn" onclick="openTab(event, 'leadership')">🍌 LEADERSHIP</button>
                 <button class="tab-btn" onclick="openTab(event, 'volunteering')">🍇 VOLUNTEERING</button>
-                <button class="tab-btn" onclick="openTab(event, 'internships')">🍌 INTERNSHIPS</button>
-                <button class="tab-btn" onclick="openTab(event, 'experiences')">🍒 EXPERIENCES</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills')">⭐ SKILLS & CERT.</button>
-                <button class="tab-btn" onclick="openTab(event, 'hobbies')">🧶 HOBBIES</button>
-                <button class="tab-btn" onclick="openTab(event, 'extra')">🪙 LITTLE EXTRA</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills')">⭐ SKILLS</button>
+                <button class="tab-btn" onclick="openTab(event, 'certs')">🪙 CERTIFICATES</button>
+                <button class="tab-btn" onclick="openTab(event, 'honors')">🍒 HONORS & LANG</button>
             </nav>
 
             <!-- Right Side Dashboard Display Screen -->
@@ -261,16 +265,25 @@
                 <!-- ABOUT ME -->
                 <div id="about" class="tab-content active">
                     <h2>🍊 Character Bio</h2>
-                    <p>Welcome to my main island directory! I am an economics master's student trained in quantitative data strategy, analytical mapping, and econometric theories.</p>
-                    <p>I enjoy collecting structured data frameworks, turning confusing information panels into actionable steps, and configuring analytical models.</p>
+                    <p>Master's student in International Economics and Business with strong analytical, organizational, and communication skills[span_0](start_span)[span_0](end_span).</p>
+                    <p>Experienced in research, data analysis, and project coordination, with the unique ability to transform complex insights into actionable recommendations[span_1](start_span)[span_1](end_span).</p>
                 </div>
 
-                <!-- PROJECTS -->
-                <div id="projects" class="tab-content">
-                    <h2>🍎 Quest Log: Projects</h2>
+                <!-- EDUCATION -->
+                <div id="education" class="tab-content">
+                    <h2>🍎 Education Quest</h2>
                     <ul class="apple-list">
-                        <li><span class="highlight">[Project Module 1]</span> - Compiled data regressions to identify variance markers across market models.</li>
-                        <li><span class="highlight">[Project Module 2]</span> - Engineered custom script metrics using data management loops to evaluate field datasets.</li>
+                        <li><span class="highlight">Universität Passau (2025 - Current)</span><br>M.Sc. International Economics and Business[span_2](start_span)[span_2](end_span).</li>
+                        <li><span class="highlight">CHRIST (Deemed to be) University (2021 - 2024)</span><br>B.A Psychology, Sociology, Economics. Final Grade: 8.97/10.0[span_3](start_span)[span_3](end_span).</li>
+                    </ul>
+                </div>
+
+                <!-- LEADERSHIP / POSITIONS OF RESPONSIBILITY -->
+                <div id="leadership" class="tab-content">
+                    <h2>🍌 Positions of Responsibility</h2>
+                    <ul class="banana-list">
+                        <li><span class="highlight">Deanery Head (2022-2024)</span><br>Association of Christian Christites — Team leader for the School of Social Sciences; conducted student engagement events for minority welfare[span_4](start_span)[span_4](end_span).</li>
+                        <li><span class="highlight">Promotions Head (2023-2024)</span><br>Potter and Clay Productions — Led the promotions team for a theatre group, creating posters, drafting emails, and discussing video scripts[span_5](start_span)[span_5](end_span).</li>
                     </ul>
                 </div>
 
@@ -278,54 +291,43 @@
                 <div id="volunteering" class="tab-content">
                     <h2>🍇 Community Side Quests</h2>
                     <ul class="grape-list">
-                        <li><span class="highlight">[Organization Group]</span> - Streamlined local resource distribution networks and asset management.</li>
-                        <li><span class="highlight">[Event Leadership]</span> - Organized logistics flows and data coordination channels for regional campaigns.</li>
+                        <li><span class="highlight">Vision Empower (2023)</span><br>Tactile Illustrator (Bangalore, India) — Created tactile STEM diagrams for the visually challenged and used Microsoft Azure services for transcription and editing[span_6](start_span)[span_6](end_span).</li>
+                        <li><span class="highlight">St. Anne's Convent (2018)</span><br>English Tutor (Chinnathurai, India) — Taught spoken English to underprivileged children via role-plays, crafting, and personalized tests[span_7](start_span)[span_7](end_span).</li>
                     </ul>
                 </div>
 
-                <!-- INTERNSHIPS -->
-                <div id="internships" class="tab-content">
-                    <h2>🍌 Internships Slot</h2>
-                    <p>🛠️ Current Objective: Secure an active enterprise pipeline internship slot.</p>
-                    <p>Ready to deploy into Data Analyst, Research Assistant, or Business Intelligence roles instantly.</p>
-                </div>
-
-                <!-- EXPERIENCES -->
-                <div id="experiences" class="tab-content">
-                    <h2>🍒 Campaign Milestones</h2>
-                    <ul class="apple-list">
-                        <li><span class="highlight">Academic Research & Coding Engine</span> - Successfully completed complex structural data coursework, utilizing clean data patterns to write summaries and forecast trends.</li>
-                    </ul>
-                </div>
-
-                <!-- SKILLS & CERTIFICATES -->
+                <!-- SKILLS -->
                 <div id="skills" class="tab-content">
                     <h2>⭐ Technical Skill Tree</h2>
                     <div class="perks-grid">
                         <div class="perk-box">
-                            <div class="highlight">📊 Core Systems:</div>
-                            Econometrics, Causal Inference, Structural Modeling
+                            <span class="highlight">💻 Programming:</span><br>R, STATA, Python[span_8](start_span)[span_8](end_span)
                         </div>
                         <div class="perk-box">
-                            <div class="highlight">💻 Code Base:</div>
-                            R, Stata, Python, Git/GitHub
+                            <span class="highlight">📊 Applications & Analysis:</span><br>Dashboard creation, data collection, cleaning & analysis, market research, documentation, statistics, econometrics[span_9](start_span)[span_9](end_span)
+                        </div>
+                        <div class="perk-box">
+                            <span class="highlight">🛠️ Platforms:</span><br>Microsoft Office, Google Workspace, Canva, Power BI[span_10](start_span)[span_10](end_span)
                         </div>
                     </div>
                 </div>
 
-                <!-- HOBBIES -->
-                <div id="hobbies" class="tab-content">
-                    <h2>🧶 Crafting Level: Expert</h2>
-                    <p>When my analytical compiler rests, I invest my energy into creative spatial planning and visual design, including painting canvases and complex garment architecture (crocheting clothing lines).</p>
+                <!-- CERTIFICATIONS -->
+                <div id="certs" class="tab-content">
+                    <h2>🪙 Badge Inventory (Certifications)</h2>
+                    <ul class="coin-list">
+                        <li><span class="highlight">Programming Badges:</span> Regression in R (2026), Basics of STATA (2026), Python for Data Science, AI & Development (2025), Data Analytics Using R Programming (2023)[span_11](start_span)[span_11](end_span).</li>
+                        <li><span class="highlight">Application Badges:</span> Computational Social Science Methods (2025), Google AI Essentials (2025), Excel/Cognos Dashboards (2025), Model Thinking (2025), Market Research & Consumer Behaviour (2025)[span_12](start_span)[span_12](end_span).</li>
+                    </ul>
                 </div>
 
-                <!-- LITTLE EXTRA -->
-                <div id="extra" class="tab-content">
-                    <h2>🪙 Bonus Inventory</h2>
-                    <ul class="coin-list">
-                        <li>Focus Buff: +20% during complex calculations</li>
-                        <li>Typing Speed: 70 Words Per Minute</li>
-                        <li>Language Node: Basic German (A1 Unlocked!)</li>
+                <!-- HONORS & LANGUAGES -->
+                <div id="honors" class="tab-content">
+                    <h2>🍒 Honors & Languages</h2>
+                    <ul class="apple-list">
+                        <li><span class="highlight">Nudge Impact Award (April 2026):</span> Awarded for a behavioural-science project applying nudging principles to improve decision-making and public outcomes[span_13](start_span)[span_13](end_span).</li>
+                        <li><span class="highlight">Meritorious Scholarship (2023-2024):</span> Awarded for 2 years for academic performance and regular attendance[span_14](start_span)[span_14](end_span).</li>
+                        <li><span class="highlight">Languages:</span> English (C2 - Proficient), German (B1 - Independent), Tamil (Native)[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span).</li>
                     </ul>
                 </div>
 
